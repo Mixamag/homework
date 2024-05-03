@@ -43,17 +43,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                         if Int(gestureView.frame.origin.x) == x && Int(gestureView.frame.origin.y) == y {
                             
                            
-                            circleViews[view].workingView.frame = CGRect(x: circleViews[view].workingView.frame.origin.x, y: circleViews[view].workingView.frame.origin.y, width: circleViews[view].workingView.frame.width + 20, height: circleViews[view].workingView.frame.height + 20)
-                            circleViews[view].workingView.layer.cornerRadius = circleViews[view].workingView.frame.width/2
-                            circleViews[view].workingView.backgroundColor = .blue
+                            UIView.animate(withDuration: 3, delay: 0, options: [], animations: {self.circleViews[view].workingView.frame = CGRect(
+                                x: self.circleViews[view].workingView.frame.origin.x,
+                                y: self.circleViews[view].workingView.frame.origin.y,
+                                width: self.circleViews[view].workingView.frame.width + 20,
+                                height: self.circleViews[view].workingView.frame.height + 20)
+                                self.circleViews[view].workingView.layer.cornerRadius = self.circleViews[view].workingView.frame.width/2})
+                            UIView.animate(withDuration: 2, delay: 0, options: [], animations: {self.circleViews[view].workingView.backgroundColor = .systemRed})
                             gestureView.isHidden = true
                         }
                     }
                 }
             }
-
-
+        
         }
+    
     }
     
     
